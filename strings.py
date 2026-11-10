@@ -48,3 +48,45 @@ print(greeting)
 grt1 = 'hi'
 # grt1[0] = 'H'  # This will raise an error
 
+# String Concatenation and String Interpolation
+
+# In Python, you can combine multiple strings together with the plus (+) operator. This process is called string concatenation
+
+hello = 'Hello'
+world = 'World'
+greeting = hello + ' ' + world
+print(greeting)  # Hello World
+
+# Repeating Strings
+
+# You can also repeat a string by multiplying it with an integer using the * operator. The string is repeated the specified number of times
+
+sound = 'ha'
+laughter = sound * 3
+print(laughter)  # hahaha
+
+# Concatenating Strings with Numbers
+
+# Concatenation only works with strings. If you try to concatenate a string with a number, you'll get a TypeError
+
+name = 'Alice'
+age = 20
+#  msg = name + age # This will raise a TypeError  
+
+# This happens because Python does not automatically convert other data types like integers into strings when you concatenate them. Python requires all elements to be strings before it can concatenate them. To fix that, you can convert the number into a string with the built-in str() function, which returns the string representation of the given value without modifying the original value.
+
+msg = name + str(age)
+print(msg)
+
+# You can also use the augmented assignment operator for concatenation. This is represented by a plus and equals sign (+=), and performs both concatenation and assignment in one step.
+
+msg += str(age)
+print(msg)  # Alice20
+
+# String Interpolation
+# The process of inserting variables and expressions into a string is called string interpolation. Python has a category of string called f-strings (short for formatted string literals), which allows you to handle interpolation with a compact and readable syntax.
+
+# F-strings start with f (either lowercase or uppercase) before the quotes, and allow you to embed variables or expressions inside replacement fields indicated by curly braces ({})
+
+msg = F'My name is {name}!'
+print(msg)
