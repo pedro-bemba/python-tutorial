@@ -1,0 +1,701 @@
+# Python: Python is a general-purpose programming language known for its simplicity and ease of use.
+# Common Use Cases: Python is used in data science, machine learning, web development, cybersecurity, embedded systems and IoT, scripting, automation, and microcomputers such as the Raspberry Pi and MicroPython-compatible boards.
+
+# Variables
+# Declaring Variables: To declare a variable, you start with the variable name followed by the assignment operator (=) and then the value. This can be a number, string, boolean, etc. Here are some examples:
+
+name = 'Pedro Bemba'
+rate = 5
+
+# Naming Conventions for Variables: Here are the naming conventions you should use for variables:
+
+# Variable names can only start with a letter or an underscore (_), not a number.
+# Variable names can contain letters (a-z, A-Z), digits (0-9), and underscores (_).
+# Variable names are case-sensitive: age, Age, and AGE are all considered unique.
+# Variable names cannot be one of Python's reserved keywords such as if, class, or def.
+# Variable names with multiple words use underscores, as in snake_case.
+# Variable names should describe their purpose, as in user_age.
+# Single-letter variable names should be avoided when they do not communicate meaning.
+
+# print() Function: To print data to the terminal, you can use the print() function like this:
+
+print('Hello, world!')
+
+# You can pass multiple arguments to print() by separating them with commas. By default, print() inserts a space between their displayed values:
+
+print('Hello', 'world!') # Hello world!
+
+# Dynamic Typing: Python is a dynamically typed language, meaning you don't need to declare a variable's data type. Python determines the type from the value assigned to the variable.
+
+my_integer_var = 10
+print('Integer:', my_integer_var) # Integer: 10
+
+my_float_var = 4.50
+print('Float:', my_float_var) # Float: 4.5
+
+my_string_var = 'hello'
+print('String:', my_string_var) # String: hello
+
+my_boolean_var = True
+print('Boolean:', my_boolean_var) # Boolean: True
+
+# type() Function: To see the type for a variable, you can use the type() function like this:
+greeting = 'Hello there!'
+age = 21
+
+print(type(greeting)) # <class 'str'>
+print(type(age)) # <class 'int'>
+
+# isinstance() Function: This is used to check if a variable matches a specific data type:
+greeting = 'Hello world'
+name = 'John Doe'
+
+print(isinstance(greeting, str)) # True
+print(isinstance(name, int)) # False
+
+# To check against more than one type, put the types in parentheses, separated by commas, and pass them as the second argument. The result is True if the value is an instance of any listed type:
+account_balance = 12
+print(isinstance(account_balance, (int, float))) # True
+
+# Working with Strings
+# Strings: Strings are sequences of characters. In Python, you can use either single or double quotes. Choose one style and use it consistently:
+
+developer = 'Jessica'
+city = "Los Angeles"
+
+# Multiline Strings: Triple single or triple double quotes let a string span multiple lines:
+
+message = """Hello
+world!"""
+print(message)
+# Hello
+# world!
+
+# Quotes Inside Strings: You can use the opposite quote type around a string to avoid escaping its quotation marks:
+msg = "It's a sunny day"
+quote = 'She said, "Hello!"'
+
+# Escaping Strings: You can use a backslash (\) if your string contains quotes like this:
+
+msg = 'It\'s a sunny day'
+quote = "She said, \"Hello!\""
+
+# Escape Sequences: A backslash combined with another character can represent a special character. For example, \n represents a newline, \t represents a tab, and \\ represents a single backslash:
+
+print('Hello\nworld')
+# Hello
+# world
+
+print('Name:\tAlice')  # Name:   Alice
+print('C:\\Users\\Alice')  # C:\Users\Alice
+
+# in Operator: This returns a boolean that specifies whether the character or characters exist in the string or not:
+my_str = 'Hello world'
+
+print('Hello' in my_str)  # True
+print('hey' in my_str)    # False
+print('hi' in my_str)    # False
+print('e' in my_str)  # True
+print('f' in my_str)  # False
+
+# Getting the Length of a String: The len() function returns the number of characters in a string:
+developer = 'Jessica'
+
+print(len(developer)) # 7
+
+# Accessing Characters from Strings: You can access characters from strings by using bracket notation like this:
+my_str = 'Hello world'
+
+print(my_str[0])  # H
+print(my_str[6])  # w
+
+print(my_str[-1])  # d
+print(my_str[-2]) # l
+
+# Reassignment and Immutability: Strings are immutable, which means you cannot change them after they have been created. Reassigning a variable makes it refer to a different value. It does not modify the original string:
+greeting = 'hi'
+greeting = 'hello'
+print(greeting) # hello
+
+# Direct modification of a string is not allowed:
+
+greeting = 'hi'
+greeting[0] = 'H' # TypeError: 'str' object does not support item assignment
+
+# Integers, floats, and booleans are also immutable.
+
+# String Concatenation: To concatenate strings, you can use the + operator like this:
+developer = 'Jessica'
+print('My name is ' + developer + '.') # My name is Jessica.
+
+# String Repetition: The * operator repeats a string a specified number of times:
+print('ha' * 3) # hahaha
+
+# Concatenating Strings with Numbers: Concatenating a string and a number raises a TypeError:
+'Age: ' + 26 # TypeError: can only concatenate str (not "int") to str
+
+# The str() function converts the number to a string so it can be concatenated:
+
+print('Age: ' + str(26)) # Age: 26
+
+# Another way to concatenate strings is by using the += operator. This is used to perform concatenation and assignment in the same step like this:
+
+greeting = 'My name is '
+developer = 'Jessica.'
+
+greeting += developer
+print(greeting) # My name is Jessica.
+
+# The *= operator repeats a string and assigns the result back to the variable:
+
+sound = 'ha'
+sound *= 3
+print(sound) # hahaha
+
+# Both += and *= assign a new string to the variable without modifying the original string.
+
+# f-strings: This is short for formatted string literals. It allows you to handle interpolation and also do some concatenation with a compact and readable syntax:
+developer = 'Jessica'
+greeting = f'My name is {developer}.'
+print(greeting) # My name is Jessica.
+
+# Replacement fields in f-strings can contain expressions. Python evaluates the expression and inserts its value into the string:
+
+num1 = 5
+num2 = 10
+print(f'The sum is {num1 + num2}') # The sum is 15
+
+# String Slicing: This is when you can extract portions of a string. Here is the basic syntax:
+# str[start:stop:step]
+
+# The start index specifies where extraction begins. The stop index is non-inclusive, so the character at that index is not included. The step specifies the interval between selected indices and defaults to 1. With a positive step, an omitted start defaults to the beginning of the string, and an omitted stop defaults to the end. [:] extracts the whole string. [::-1] reverses the string by stepping backward from the last character to the first. Slicing does not modify the original string.
+
+message = 'Python is fun!'
+
+print(message[0:6])  # Python
+print(message[:6])  # Python
+print(message[7:])  # is fun!
+print(message[::2])  # Pto sfn
+print(message[:])  # Python is fun!
+print(message[::-1])  # !nuf si nohtyP
+
+# Common String Methods
+# Methods: A method is a function that you call on a value. To call a string method, write the string or its variable name followed by a dot and the method call.
+
+# str.upper(): This returns a new string with all characters converted to uppercase:
+
+developer = 'Jessica'
+
+print(developer.upper()) # JESSICA
+# str.lower(): This returns a new string with all characters converted to lowercase:
+
+developer = 'Jessica'
+
+print(developer.lower()) # jessica
+
+# str.strip(): This returns a copy of the string with specified leading and trailing characters removed (if no argument is passed to the method, it removes leading and trailing whitespace).
+greeting = '  hello world  '
+
+trimmed_my_str = greeting.strip()
+print(trimmed_my_str)  # hello world
+# replace(): This returns a new string with all occurrences of the old string replaced by a new one.
+greeting = 'hello world'
+
+replaced_my_str = greeting.replace('hello', 'hi')
+print(replaced_my_str)  # hi world
+# split(): This is used to split a string into a list using a specified separator. A separator is a string specifying where the split should happen. If no separator is specified, split() splits on whitespace.
+dashed_name = 'example-dashed-name'
+
+split_words = dashed_name.split('-')
+print(split_words)  # ['example', 'dashed', 'name']
+
+# join(): This is used to join a collection of strings into one string with a separator.
+example_list = ['example', 'dashed', 'name']
+
+joined_str = ' '.join(example_list)
+print(joined_str)  # example dashed name
+
+# str.startswith(prefix): This returns a boolean indicating if a string starts with the specified prefix:
+developer = 'Naomi'
+
+result = developer.startswith('N')
+print(result)  # True
+
+# str.endswith(suffix): This returns a boolean indicating if a string ends with the specified suffix:
+developer = 'Naomi'
+
+result = developer.endswith('N')
+print(result)  # False
+
+# str.find(): This returns the index of the first occurrence of a substring. If one is not found, then -1 is returned:
+developer = 'Naomi'
+
+result = developer.find('N')
+print(result)  # 0
+
+city = 'Los Angeles'
+print(city.find('New')) # -1
+
+# str.count(substring): This counts how many non-overlapping times a substring appears in a string. Once a match is found, the search continues after the end of that match:
+
+city = 'Los Angeles'
+print(city.count('e')) # 2
+
+# Matches do not overlap, so this is 2, not 3
+print('aaaa'.count('aa')) # 2
+
+# str.capitalize(): This returns a new string with the first character capitalized and the other characters lowercased:
+dessert = 'chocolate cake'
+print(dessert.capitalize()) # Chocolate cake
+
+# str.isupper(): This returns True if the string contains at least one cased character and all cased characters are uppercase. Otherwise, it returns False:
+dessert = 'chocolate cake'
+print(dessert.isupper()) # False
+
+# str.islower(): This returns True if the string contains at least one cased character and all cased characters are lowercase. Otherwise, it returns False:
+dessert = 'chocolate cake'
+print(dessert.islower()) # True
+
+# str.title(): This returns a new string with the first letter of each word capitalized and the remaining letters lowercased:
+city = 'lOS aNGELES'
+print(city.title()) # Los Angeles
+
+# More String Operations
+# Negative Slice Bounds: Slice bounds can count backward from the end of a string. For example, [-3:] extracts its last three characters:
+employee_code = 'DEV-2026-JD-001'
+print(employee_code[-3:]) # 001
+
+# Method Chaining: You can call multiple string methods in one expression. Each method operates on the result of the previous call:
+name = '  jANE dOE  '
+print(name.strip().title()) # Jane Doe
+
+# Common Operations Used with Integers and Floats
+# Basic Math Operations: In Python, you can do basic math operations with integers and floats including addition, subtraction, multiplication, and division:
+int_1 = 56
+int_2 = 12
+float_1 = 5.4
+float_2 = 12.0
+
+# Addition
+
+print('Integer Addition:', int_1 + int_2) # Integer Addition: 68
+print('Float Addition:', float_1 + float_2) # Float Addition: 17.4
+
+# Subtraction
+
+print('Int Subtraction:', int_1 - int_2) # Int Subtraction: 44
+print('Float Subtraction:',  float_2 - float_1) # Float Subtraction: 6.6
+
+# Multiplication
+
+print('Int Multiplication:', int_1 * int_2) # Int Multiplication: 672
+print('Float Multiplication:', float_2 * float_1) # Float Multiplication: 64.80000000000001
+
+# Division
+
+print('Division:', int_1 / int_2) # Division: 4.666666666666667
+print('Float Division:', float_2 / float_1) # Float Division: 2.222222222222222
+
+# When you add a float and an integer, the result will be converted to a float like this:
+
+int_1 = 56
+float_1 = 5.4
+
+print(int_1 + float_1) # 61.4
+
+# Modulo Operator (%): This returns the remainder when a number is divided by another number:
+int_1 = 56
+int_2 = 12
+
+print(int_1 % int_2) # 8
+
+# Floor Division (//): This operator is used to divide two numbers and round down the result to the nearest whole number:
+int_1 = 56
+int_2 = 12
+
+print(int_1 // int_2) # 4
+
+# Exponentiation Operator (**): This operator is used to raise a number to the power of another:
+int_1 = 4
+int_2 = 2
+
+print(int_1 ** int_2) # 16
+
+# Floating-Point Approximation: Some decimal fractions cannot be represented exactly in binary, so they are stored as finite approximations. This can cause small rounding errors, such as the 64.80000000000001 multiplication result above.
+print(0.1 + 0.2) # 0.30000000000000004
+
+# float() Function: You can use this function to convert an integer or a valid decimal string to a float, or to create a special float value that represents positive infinity, which is greater 
+# than any finite integer or float:
+num = 4
+
+print(float(num)) # 4.0
+print(float('7.8')) # 7.8
+print(float('inf')) # inf
+
+# int() Function: You can use this function to convert a float to an integer.
+num = 4.0
+
+print(int(num)) # 4
+# round() Function: With one argument, this rounds a number to the nearest whole integer. Pass a second argument to specify the number of decimal places:
+
+num_1 = 3.4
+num_2 = 7.7
+
+print(round(num_1)) # 3
+print(round(num_2)) # 8
+print(round(3.14159, 2)) # 3.14
+
+# abs() Function: This is used to return the absolute value of a number:
+num = -13
+
+print(abs(num)) # 13
+# pow() Function: This raises a number to the power of another. With integer arguments, you can pass a third, nonzero argument to calculate the result modulo that value:
+
+result = pow(2, 3)
+print(result)  # 8
+print(pow(2, 3, 5)) # 3
+
+# Augmented Assignments
+# Augmented Assignment: Augmented assignment applies an operation to a variable and stores the result back in the same variable, all in one step.
+
+# Addition assignment
+my_var = 10
+my_var += 5
+
+print(my_var) # 15
+
+# Subtraction assignment
+count = 14
+count -= 3
+
+print(count) # 11
+
+# Multiplication assignment
+product = 65
+product *= 7
+
+print(product) # 455
+
+# Division assignment
+price = 100
+price /= 4
+
+print(price) # 25.0
+
+# Floor Division assignment
+total_pages = 23
+total_pages //= 5
+
+print(total_pages) # 4
+
+# Modulo assignment
+bits = 35
+bits %= 2
+
+print(bits) # 1
+
+# Exponentiation assignment
+power = 2
+power **= 3
+
+print(power) # 8
+
+# Comparison Operators
+# Equal (==): Checks if two values are equal:
+print(3 == 4) # False
+
+# Not equal (!=): Checks if two values are not equal:
+print(3 != 4) # True
+
+# Strictly greater than (>): Checks if one value is greater than another:
+print(3 > 4) # False
+
+# Strictly less than (<): Checks if one value is less than another:
+print(3 < 4) # True
+
+# Greater than or equal (>=): Checks if one value is greater than or equal to another:
+print(3 >= 4) # False
+
+# Less than or equal (<=): Checks if one value is less than or equal to another:
+print(3 <= 4) # True
+
+# Working with if, elif, and else Statements
+# Code Blocks and Indentation: Python uses indentation to group statements into a block, such as the body of a function or conditional. Statements in the same block must use the same indentation level. The convention is to use four spaces for each level.
+
+# pass Statement: pass does nothing. Use it as a placeholder where Python requires a statement, such as an empty conditional body:
+
+age = 18
+if age >= 18:
+    pass
+# if Statements: An if statement runs its body when Python treats its condition as true.
+age = 18
+
+if age >= 18:
+    print('You are an adult') # You are an adult
+# else Clause: An else clause runs its body when Python treats all preceding conditions in the same if...elif...else chain as false.
+age = 12
+
+if age >= 18:
+    print('You are an adult')
+else:
+    print('You are not an adult yet') # You are not an adult yet
+# elif Clause: An elif clause tests another condition when Python treats all preceding conditions in the same chain as false. It runs its body if Python treats its own condition as true.
+age = 16
+
+if age >= 18:
+    print('You are an adult')
+elif age >= 13:
+    print('You are a teenager')  # You are a teenager
+# You can also use nested if statements like this:
+
+is_citizen = True
+age = 25
+
+if is_citizen:
+    if age >= 18:
+        print('You are eligible to vote') # You are eligible to vote
+else:
+    print('You are not eligible to vote')
+
+# Truthy and Falsy Values
+# Truthiness: In Python, every value has an inherent boolean value, or a built-in sense of whether it should be treated as True or False in a logical context. Many values are considered truthy, that is, they evaluate to True in a logical context. Others are falsy, meaning they evaluate to False. Here are some examples of falsy values:
+False
+None
+
+# Integer 0
+# Float 0.0
+# Empty strings ''
+# Other values like non-zero numbers, and non-empty strings are truthy.
+
+# Working with the bool() Function
+# bool() Function: If you want to check whether a value is truthy or falsy, you can use the built-in bool() function. It explicitly converts a value to its boolean equivalent and returns True for truthy values and False for falsy values. Here are a few examples:
+print(bool(False)) # False
+print(bool(0))  # False
+print(bool('')) # False
+
+print(bool(True)) # True
+print(bool(1)) # True
+print(bool('Hello')) # True
+
+# Boolean Operators and Short-Circuiting
+# Boolean Operators: These are special operators that allow you to combine multiple expressions to create more complex decision-making logic in your code. There are three Boolean operators in Python: and, or, and not.
+# and Operator: This operator takes two operands and returns the first operand if it is falsy; otherwise, it returns the second operand. Both operands must be truthy for an expression to result in a truthy value.
+is_citizen = True
+age = 25
+
+print(is_citizen and age) # 25
+# You can also use the and operator in conditionals like this:
+
+# Example Code
+is_citizen = True
+age = 25
+
+if is_citizen and age >= 18:
+    print('You are eligible to vote') # You are eligible to vote
+else:
+    print('You are not eligible to vote')
+
+# or Operator: This operator returns the first operand if it is truthy; otherwise, it returns the second operand. An or expression results in a truthy value if at least one operand is truthy. Here is an example:
+age = 19
+is_employed = False
+
+print(age or is_employed) # 19
+# Just like with the and operator, you can use the or operator in conditionals like this:
+
+age = 19
+is_student = True
+
+if age < 18 or is_student:
+    print('You are eligible for a student discount') # You are eligible for a student discount
+else:
+    print('You are not eligible for a student discount')
+
+# Short-circuiting: The and and or operators are known as short-circuit operators. Short-circuiting means Python checks values from left to right and stops as soon as it determines the final result.
+# not Operator: This operator takes a single operand and inverts its boolean value. It converts truthy values to False and falsy values to True. Unlike the previous operators we looked at, not always returns True or False. Here are some examples:
+print(not '') # True, because empty string is falsy
+print(not 'Hello') # False, because non-empty string is truthy
+print(not 0) # True, because 0 is falsy
+print(not 1) # False, because 1 is truthy
+print(not False) # True, because False is falsy
+print(not True) # False, because True is truthy
+
+
+# Here is an example of the not operator in a conditional:
+
+is_admin = False
+
+if not is_admin:
+    print('Access denied for non-administrators.') # Access denied for non-administrators.
+else:
+    print('Welcome, Administrator!')
+
+# Identity Operators
+# Identity and Equality: Variables refer to objects. The is operator checks whether two operands refer to the same object, while is not checks whether they refer to different objects. The == and != operators compare values instead. Use equality operators when comparing number or string values.
+# None and NoneType: None represents the absence of a value. It is the only value of the NoneType data type.
+# Singletons: None, True, and False are each singletons, meaning there is exactly one object for each. You can check for these objects with identity operators.
+# Checking for None: Use is None to check for a missing value and is not None to check for a present value. Both None and False are falsy, but they are different objects:
+response = False
+
+print(response is None) # False
+print(response is not None) # True
+print(response is True) # False
+print(response is False) # True
+
+# Identity and Truthiness: If response can be True, False, or None, response is None distinguishes a missing answer from a negative answer. Using not response would treat both False and None alike. For ordinary boolean flags, use if is_ready or if not is_ready. Use is True or is False when you specifically need to distinguish a boolean object from other possible values.
+# Boolean Operator Precedence
+# Operator Precedence and Parentheses: When and and or appear in the same expression, and has higher precedence than or. This means and groups its operands first, so True or False and False is grouped as True or (False and False):
+print(True or False and False) # True
+
+# The left operand of or is True, so short-circuiting means False and False is never evaluated, and the result is True.
+
+# You can use parentheses to change the grouping. Here, True or False is grouped together and evaluates to True, and then True and False evaluates to False:
+
+print((True or False) and False) # False
+
+# Common Built-in Functions
+# input() Function: This is used to prompt the user for some input:
+name = input('What is your name?') # User types 'Kolade' and presses Enter
+print('Hello', name) # Hello Kolade
+
+# int() Function: This is used to convert a number, boolean, or a string representing an integer to an integer:
+print(int(3.14)) # 3
+print(int('42')) # 42
+print(int(True)) # 1
+print(int(False)) # 0
+
+# A string representing a decimal number cannot be converted directly
+# int('3.14') raises a ValueError
+# Working with Functions
+# Functions: Functions are reusable pieces of code that run when you call them. To call a function, you need to reference the function name followed by a set of parentheses:
+# Defining a function
+
+def get_sum(num_1, num_2):
+    return num_1 + num_2
+
+result = get_sum(3, 4) # function call
+print(result) # 7
+# Parameters and Arguments: Parameters are the names listed in a function definition, such as  num_1 and num_2 above. Arguments are the values passed when calling the function, such as 3 and 4.
+# If you call the function without the correct number of arguments, you will get a TypeError:
+
+def calculate_sum(a, b):
+    print(a + b)
+
+calculate_sum()
+
+# TypeError: calculate_sum() missing 2 required positional arguments: 'a' and 'b'
+# Positional Arguments: These arguments are matched to parameters by their position in the function call.
+def introduce(name, age):
+    print(f'My name is {name} and I am {age} years old.')
+
+introduce('Alice', 25)
+
+# My name is Alice and I am 25 years old.
+# Keyword Arguments: These arguments use name=value to match a parameter by name. They can appear in a different order from the parameters:
+introduce(age=25, name='Alice')
+# My name is Alice and I am 25 years old.
+
+# Combining Argument Types: Positional arguments must come before keyword arguments. Each parameter can receive only one value:
+introduce('Alice', age=25)
+# My name is Alice and I am 25 years old.
+# return Statement: A return statement ends the function and makes its value available where the function was called.
+
+# None: None represents the absence of a value. If a function does not explicitly return a value, then the default return value is None:
+
+def greet():
+    print('hello')
+
+result = greet() # hello
+print(result) # None
+
+# Scope in Python
+# Python has additional scope rules. For now, focus on local and global scope.
+
+# Global Scope: A variable created outside a function can be used both inside and outside functions.
+tax = 0.70
+
+def get_total(subtotal):
+    total = subtotal + (subtotal * tax)
+    return total
+
+print(get_total(100))  # 170.0
+
+# Local Scope: A variable created inside a function can only be used within that function. Function parameters are local variables too.
+def my_func():
+    num = 10
+    print(num)
+
+# Argument Passing and Parameter Reassignment: Python passes arguments by assignment. A parameter is a local name that initially refers to the supplied object; the object is not automatically copied. Reassigning the parameter does not reassign the variable passed as an argument:
+def double_number(number):
+    number = number * 2
+    print(number) # 20
+
+original = 10
+double_number(original)
+print(original) # 10
+
+# Applying Functions and Scope
+# Empty Function Bodies: You can use pass as a placeholder in a function body. A function containing only pass implicitly returns None:
+def placeholder():
+    pass
+
+print(placeholder()) # None
+
+# Name Shadowing: When a local parameter or variable has the same name as a global variable, the function uses the local name. Reassigning that local parameter does not change the global variable:
+available_eggs = 5
+
+def use_eggs(available_eggs, eggs_to_use):
+    available_eggs -= eggs_to_use
+    return available_eggs
+
+print(use_eggs(available_eggs, 1)) # 4
+print(available_eggs) # 5
+
+# Early Returns: A return statement immediately ends the function and makes its value available where the function was called. This lets you return early when a condition is met:
+def use_eggs(available_eggs, eggs_to_use):
+    if eggs_to_use > available_eggs:
+        return available_eggs
+    return available_eggs - eggs_to_use
+
+print(use_eggs(2, 3)) # 2
+print(use_eggs(2, 1)) # 1
+
+# Calling Functions from Other Functions: A function can call another function and use or return its result:
+def use_eggs(available_eggs, eggs_to_use):
+    return available_eggs - eggs_to_use
+
+def make_fried_egg(available_eggs):
+    return use_eggs(available_eggs, 1)
+
+print(make_fried_egg(3)) # 2
+
+# Assigning Returned Values: Returning a new value does not automatically update the variable passed as an argument. To update it, assign the returned value back to that variable:
+available_eggs = use_eggs(available_eggs, 1)
+print(available_eggs) # 4
+
+# Translating Strings
+# str.maketrans(): The two-string form of str.maketrans() takes strings of equal length and maps each character in the first string to the corresponding character in the second. The table stores characters as Unicode ordinals, numbers that uniquely identify them. The translate() method applies the table to a string and returns a new string. Characters not included in the table remain unchanged.
+trans_table = str.maketrans('abc', '123')
+print(trans_table) # {97: 49, 98: 50, 99: 51}
+
+result = 'abcabc!'.translate(trans_table)
+print(result)  # 123123!
+
+# Validating Integer Arguments
+# Booleans and Integers: Python treats booleans as a special kind of integer, so isinstance(True, int) and isinstance(False, int) both return True. When validating an integer that must not be a boolean, explicitly exclude boolean values:
+print(isinstance(True, int)) # True
+print(isinstance(False, int)) # True
+
+value = True
+print(isinstance(value, int) and not isinstance(value, bool)) # False
+
+value = 5
+print(isinstance(value, int) and not isinstance(value, bool)) # True
+
+# Default Parameter Values
+# Default Parameters: You can supply a default value to a parameter. If you omit its argument when calling the function, Python uses that default:
+
+def get_sum(num_1, num_2=2):
+    return num_1 + num_2
+
+result = get_sum(3)
+print(result) # 5
